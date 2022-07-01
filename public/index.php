@@ -5,6 +5,10 @@ require_once BASE_DIR . '/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createUnsafeImmutable(dirname(__DIR__));
 $dotenv->load();
 
+if (!session_id()) {
+    session_start();
+}
+
 try {
     $router = new \Core\Router();
 
